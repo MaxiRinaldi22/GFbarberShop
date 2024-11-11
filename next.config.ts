@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  env: {
+    ADMIN_PASSWORD: 'carlos',
+  },
 };
 
 export default nextConfig;
