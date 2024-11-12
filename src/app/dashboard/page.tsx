@@ -37,15 +37,30 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <div>
-      <h1>dasboard</h1>
-      {items.map((item) => (
-        <div key={item.id}>
-          <p>{item.name}</p>
-          <p>{item.phone}</p>
-          <p>{item.mail}</p>
-        </div>
-      ))}
-    </div>
+    <section className="mt-[10vh] flex min-h-[92vh] w-full flex-col items-center md:mt-[8vh] md:py-10">
+      <h2 className="pb-10 text-3xl font-semibold">D A S H B O A R D</h2>
+      <div className="flex w-full items-center flex-col gap-3 px-5 md:px-0">
+        {items.map((item) => (
+          <div className="w-full border border-black p-2 md:w-96" key={item.id}>
+            <p className="flex gap-2 font-semibold">
+              Nombre:
+              <span className="font-normal">{item.name}</span>
+            </p>
+            <p className="flex gap-2 font-semibold">
+              Telefono:
+              <span className="font-normal">{item.phone}</span>
+            </p>
+            <p className="flex gap-2 font-semibold">
+              Mail:
+              <span className="font-normal">{item.mail}</span>
+            </p>
+            <p className="flex gap-2 font-semibold">
+              Hora:
+              <span className="font-normal">{item.hora}</span>
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }
