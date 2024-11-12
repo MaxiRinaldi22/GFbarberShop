@@ -3,7 +3,7 @@ import { useState } from "react";
 import db from "../util/firestore";
 import { collection, addDoc } from "firebase/firestore";
 
-export default function FormularioNormal({hora} : {hora: string}) {
+export default function FormularioNormal({ hora }: { hora: string }) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [mail, setMail] = useState("");
@@ -16,7 +16,7 @@ export default function FormularioNormal({hora} : {hora: string}) {
         name: name,
         phone: phone,
         mail: mail,
-        hora: hora
+        hora: hora,
       });
 
       setMsg(
@@ -39,12 +39,12 @@ export default function FormularioNormal({hora} : {hora: string}) {
 
     setTimeout(() => {
       handleFormSubmit();
-    }, 10); 
+    }, 10);
   };
 
   return (
     <form
-      className="flex w-full flex-col gap-5 md:p-5"
+      className="flex w-full flex-col gap-6 md:p-4"
       onSubmit={(e) => handleSubmit(e)}
     >
       <label htmlFor="name" className="text-xl">
@@ -81,7 +81,7 @@ export default function FormularioNormal({hora} : {hora: string}) {
 
       <button
         type="submit"
-        className="flex w-full items-center justify-center rounded-full border-2 border-black bg-black px-6 py-2.5 text-center text-sm text-white duration-200 hover:border-black hover:bg-transparent hover:text-black focus:outline-none focus-visible:outline-black focus-visible:ring-black md:w-56"
+        className="mt-3 flex w-full items-center justify-center rounded-full border-2 border-black bg-black px-6 py-2.5 text-center text-sm text-white duration-200 hover:border-black hover:bg-transparent hover:text-black focus:outline-none focus-visible:outline-black focus-visible:ring-black md:m-0 md:w-56"
       >
         E N V I A R
       </button>

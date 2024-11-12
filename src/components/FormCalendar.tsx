@@ -53,11 +53,12 @@ function FormularioConCalendario({
     fetchItems();
   }, []);
 
+  // Render infinito
   useEffect(() => {
     setHora(
       `${fechaSeleccionada.toLocaleDateString()} - ${horarioSeleccionado}`,
     );
-  }, [horarioSeleccionado, fechaSeleccionada]);
+  }, [fechaSeleccionada, horarioSeleccionado]);
 
   useEffect(() => {
     const fecha = fechaSeleccionada.toLocaleDateString();
@@ -68,20 +69,20 @@ function FormularioConCalendario({
       ),
     }));
     setHorarios(horariosDisponibles);
-  }, [items, fechaSeleccionada, horarios]);
+  }, [items, fechaSeleccionada]);
 
   return (
-    <div className="flex flex-col pt-5">
-      <h3 className="pb-2 text-xl">Selecciona una fecha:</h3>
+    <div className="flex flex-col md:pt-5">
+      <h3 className="md:pb-2 pb-5 text-xl">Selecciona una fecha:</h3>
       <Calendar
         onChange={(value) => manejarFechaSeleccionada(value as Date)}
         value={fechaSeleccionada}
       />
 
-      <h3 className="py-2 text-base">
+      <h3 className="pb-5 pt-1 md:py-2 text-base">
         Horarios para el {fechaSeleccionada.toLocaleDateString()}
       </h3>
-      <ul className="grid grid-cols-4 gap-2">
+      <ul className="grid grid-cols-3 md:grid-cols-4 gap-2">
         {horarios.map((horario, index) => (
           <button
             onClick={() => handleHrs(horario.hora, index)}
