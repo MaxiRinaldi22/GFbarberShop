@@ -23,6 +23,7 @@ export default function FormularioNormal({ hora }: { hora: string }) {
         hora: hora,
       });
 
+      setSubmit(true);
       setMail("");
       setPhone("");
       setName("");
@@ -48,7 +49,6 @@ export default function FormularioNormal({ hora }: { hora: string }) {
     e.preventDefault();
 
     handleFormSubmit();
-    setSubmit(true);
   };
 
   useEffect(() => {

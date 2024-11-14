@@ -5,6 +5,9 @@ import { Dialog, DialogPanel, PopoverGroup } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
+
+import logo from "/public/logoBW.png";
 
 function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -26,7 +29,7 @@ function Header() {
       <nav className="mx-auto flex w-full max-w-7xl items-center justify-between p-6 lg:px-8">
         <div className="flex lg:flex-1">
           <a href="#">
-            <h1>JAMSTACK</h1>
+            <Image src={logo} alt="Logo" width={70}/>
           </a>
         </div>
         <div className="flex lg:hidden">
@@ -60,7 +63,7 @@ function Header() {
         <DialogPanel className="fixed inset-y-0 right-0 z-10 h-full w-full overflow-y-auto bg-white sm:ring-1">
           <div className="flex h-[8vh] items-center justify-between p-6 py-10">
             <a href="#">
-              <h1>JAMSTACK</h1>
+              <Image src={logo} alt="Logo" width={70}/>
             </a>
             <button onClick={() => setMobileMenuOpen(false)}>
               <XMarkIcon aria-hidden="true" className="h-6 w-6" />
