@@ -29,7 +29,7 @@ function Header() {
       <nav className="mx-auto flex w-full max-w-7xl items-center justify-between p-6 lg:px-8">
         <div className="flex lg:flex-1">
           <a href="#">
-            <Image src={logo} alt="Logo" width={70}/>
+            <Image src={logo} alt="Logo" width={70} />
           </a>
         </div>
         <div className="flex lg:hidden">
@@ -42,7 +42,7 @@ function Header() {
           </button>
         </div>
 
-        <PopoverGroup className="hidden lg:flex lg:gap-x-6">
+        <PopoverGroup className="hidden text-xl lg:flex lg:gap-x-6">
           <Link href="/" className={isActive("/") ? "border-b-2" : ""}>
             Inicio
           </Link>
@@ -63,7 +63,7 @@ function Header() {
         <DialogPanel className="fixed inset-y-0 right-0 z-10 h-full w-full overflow-y-auto bg-white sm:ring-1">
           <div className="flex h-[8vh] items-center justify-between p-6 py-10">
             <a href="#">
-              <Image src={logo} alt="Logo" width={70}/>
+              <Image src={logo} alt="Logo" width={70} />
             </a>
             <button onClick={() => setMobileMenuOpen(false)}>
               <XMarkIcon aria-hidden="true" className="h-6 w-6" />

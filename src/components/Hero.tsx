@@ -1,5 +1,5 @@
 import Image from "next/image";
-import hero from "/public/hero.jpeg";
+import hero from "/public/hero.png";
 import heroPc from "/public/heroPc.jpeg";
 import Link from "next/link";
 
@@ -11,19 +11,18 @@ export function Hero() {
           src={hero}
           priority
           className="h-[40vh] w-full object-cover"
-          style={{ objectPosition: "center 30%" }}
           alt="Foto de un corte"
         />
       </div>
       <div className="hidden w-full md:block">
         <Image
           src={heroPc}
-          className="h-[40vh] md:h-[50vh] w-full object-cover "
+          className="h-[40vh] w-full object-cover md:h-[50vh]"
           alt="Foto de un corte"
           style={{ objectPosition: "center 34%" }}
         />
       </div>
-      <div className="absolute inset-0 md:h-[50vh] h-[40vh] bg-black opacity-40"></div>
+      <div className="absolute inset-0 h-[40vh] bg-black opacity-40 md:h-[50vh]"></div>
       <h1 className="absolute left-[50%] top-[30%] flex w-full translate-x-[-50%] translate-y-[-50%] flex-col items-center gap-1 text-3xl font-[500] text-white md:mt-5 md:text-4xl">
         <span>Tu estilo </span>
         <span>Tu elección</span>

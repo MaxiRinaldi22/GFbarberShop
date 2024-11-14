@@ -40,8 +40,8 @@ export default function Dashboard() {
 
 
   return (
-    <section className="mt-[10vh] flex min-h-[92vh] w-full flex-col items-center md:mt-[8vh] md:py-10">
-      <h2 className="pb-10 text-3xl font-semibold">D A S H B O A R D</h2>
+    <section className="flex min-h-[92vh] w-full flex-col items-center md:mt-[8vh] md:py-10">
+      <h2 className="pb-10 text-3xl font-semibold">P A N E L</h2>
       <div className="flex w-full flex-col items-center gap-3 px-5 md:px-0">
         {items.map((item) => (
           <div className="w-full border border-black p-2 md:w-96" key={item.id}>

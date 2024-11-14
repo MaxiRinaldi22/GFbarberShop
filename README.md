@@ -16,3 +16,5 @@ Poner todas los errores (cone el boton desactivado y cuando este bien lo active)
 Cuando elmintar un horario se tiene que actualizar la pagina
 
 Cambiar el favicon
+
+Hacerle el seo
