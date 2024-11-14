@@ -80,7 +80,7 @@ export default function FormularioNormal({ hora }: { hora: string }) {
             onChange={(e) => setName(e.target.value)}
             type="text"
             name="name"
-            className="text-md flex h-full w-full items-center justify-center rounded-full border p-2 px-4 shadow-lg outline-none"
+            className="text-md flex h-full w-full items-center justify-center rounded-xl border p-2 px-4 shadow-lg outline-none"
           />
           <div className="min-h-[20px] min-w-full">
             {name === "" && (
@@ -95,7 +95,7 @@ export default function FormularioNormal({ hora }: { hora: string }) {
             onChange={(e) => setPhone(e.target.value)}
             type="phone"
             name="phone"
-            className="text-md flex h-full w-full items-center justify-center rounded-full border p-2 px-4 shadow-lg outline-none"
+            className="text-md flex h-full w-full items-center justify-center rounded-xl border p-2 px-4 shadow-lg outline-none"
           />
           <div className="min-h-[20px] min-w-full">
             {!validPhone && (
@@ -113,7 +113,7 @@ export default function FormularioNormal({ hora }: { hora: string }) {
             onChange={(e) => setMail(e.target.value)}
             type="email"
             name="mail"
-            className="text-md flex h-full w-full items-center justify-center rounded-full border p-2 px-4 shadow-lg outline-none"
+            className="text-md flex h-full w-full items-center justify-center rounded-xl border p-2 px-4 shadow-lg outline-none"
           />
           <div className="min-h-[20px] min-w-full">
             {!validMail && (
@@ -127,7 +127,7 @@ export default function FormularioNormal({ hora }: { hora: string }) {
         {sendBtn ? (
           <button
             type="submit"
-            className="flex w-full items-center justify-center rounded-full border-2 border-black bg-black px-6 py-2.5 text-center text-sm text-white duration-200 hover:border-black hover:bg-transparent hover:text-black focus:outline-none focus-visible:outline-black focus-visible:ring-black md:m-2 md:w-full"
+            className="flex w-full items-center justify-center rounded-xl border-2 border-black bg-black px-6 py-2.5 text-center text-sm text-white duration-200 hover:border-black hover:bg-transparent hover:text-black focus:outline-none focus-visible:outline-black focus-visible:ring-black md:m-2 md:w-full"
           >
             E N V I A R
           </button>
@@ -135,7 +135,7 @@ export default function FormularioNormal({ hora }: { hora: string }) {
           <button
             disabled
             type="submit"
-            className="flex w-full cursor-not-allowed items-center justify-center rounded-full border-2 border-neutral-200 bg-neutral-200 px-6 py-2.5 text-center text-sm text-white md:m-2 md:w-full"
+            className="flex w-full cursor-not-allowed items-center justify-center rounded-xl border-2 border-neutral-200 bg-neutral-200 px-6 py-2.5 text-center text-sm text-white md:m-2 md:w-full"
           >
             E N V I A R
           </button>

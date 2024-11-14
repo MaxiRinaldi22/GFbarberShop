@@ -98,7 +98,7 @@ function FormularioConCalendario({
               color: horario.disponible ? "green" : "red",
               backgroundColor: selectedHrs === index ? "#d1d5db" : "",
             }}
-            className={`${horario.disponible ? "cursor-pointer" : "cursor-not-allowed"} ${selectedHrs === index ? "border-gray-300" : ""} flex items-center justify-center rounded-full border p-1 font-semibold shadow-lg`}
+            className={`${horario.disponible ? "cursor-pointer" : "cursor-not-allowed"} ${selectedHrs === index ? "border-gray-300" : ""} flex items-center justify-center rounded-xl border p-1 font-semibold shadow-lg`}
           >
             {horario.hora}
           </button>
