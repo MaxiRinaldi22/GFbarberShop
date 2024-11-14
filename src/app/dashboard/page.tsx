@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 
 import { useRouter } from "next/navigation";
 import { useAdmin } from "@/hooks/useAdmin";
+import { DashboardComponent } from "@/components/ui/DashboardComponent";
+import DeleteItem from "@/components/ui/DeleteButton";
 
 export default function Dashboard() {
   const [items, setItems] = useState<DocumentData[]>([]);
@@ -36,28 +38,18 @@ export default function Dashboard() {
     fetchItems();
   }, []);
 
+
   return (
     <section className="mt-[10vh] flex min-h-[92vh] w-full flex-col items-center md:mt-[8vh] md:py-10">
       <h2 className="pb-10 text-3xl font-semibold">D A S H B O A R D</h2>
-      <div className="flex w-full items-center flex-col gap-3 px-5 md:px-0">
+      <div className="flex w-full flex-col items-center gap-3 px-5 md:px-0">
         {items.map((item) => (
           <div className="w-full border border-black p-2 md:w-96" key={item.id}>
-            <p className="flex gap-2 font-semibold">
-              Nombre:
-              <span className="font-normal">{item.name}</span>
-            </p>
-            <p className="flex gap-2 font-semibold">
-              Telefono:
-              <span className="font-normal">{item.phone}</span>
-            </p>
-            <p className="flex gap-2 font-semibold">
-              Mail:
-              <span className="font-normal">{item.mail}</span>
-            </p>
-            <p className="flex gap-2 font-semibold">
-              Hora:
-              <span className="font-normal">{item.hora}</span>
-            </p>
+            <DashboardComponent text={item.name} title="Nombre" />
+            <DashboardComponent text={item.phone} title="Telefono" />
+            <DashboardComponent text={item.mail} title="Mail" />
+            <DashboardComponent text={item.hora} title="Hora" />
+            <DeleteItem id={item.id} />
           </div>
         ))}
       </div>

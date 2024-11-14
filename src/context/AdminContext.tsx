@@ -7,7 +7,10 @@ import { createContext } from "react";
 const AdminContext = createContext<AdminContextType | null>(null);
 
 function AdminContextProvider({ children }: { children: React.ReactNode }) {
-  const [admin, setAdmin] = useState(false);
+  const [admin, setAdmin] = useState(
+    sessionStorage.getItem("admin") === "true" ? true : false);
+
+  sessionStorage.setItem("admin", admin.toString());
 
   return (
     <AdminContext.Provider value={{ admin, setAdmin }}>

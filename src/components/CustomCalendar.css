@@ -34,7 +34,7 @@
 }
 
 .react-calendar__tile {
-  border-radius: 15px;
+  border-radius: 20px;
   padding: 10px;
   color: #000;
 }
@@ -47,8 +47,8 @@
 }
 
 .react-calendar__tile--now {
-  background: #f0f0f0;
-  border-radius: 15px;
+  background: #bbbbbb;
+  border-radius: 20px;
   font-weight: bold;
   color: #333;
 }
@@ -56,5 +56,5 @@
 .react-calendar__tile--active {
   background: #000;
   color: #fff;
-  border-radius: 15px;
+  border-radius: 20px;
 }

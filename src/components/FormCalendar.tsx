@@ -9,12 +9,14 @@ import "../components/CustomCalendar.css";
 
 function FormularioConCalendario({
   setHora,
+  hora,
 }: {
   setHora: React.Dispatch<React.SetStateAction<string>>;
+  hora: string;
 }) {
   const [fechaSeleccionada, setFechaSeleccionada] = useState<Date>(new Date());
   const [horarioSeleccionado, setHorarioSeleccionado] = useState("");
-  const [selectedHrs, setSelectedHrs] = useState(0);
+  const [selectedHrs, setSelectedHrs] = useState<number>();
   const [horarios, setHorarios] = useState([
     { hora: "09:00", disponible: true },
     { hora: "10:00", disponible: true },
@@ -51,10 +53,10 @@ function FormularioConCalendario({
       }
     };
     fetchItems();
-  }, []);
+  }, [items]);
 
-  // Render infinito
   useEffect(() => {
+    if (horarioSeleccionado === "") return;
     setHora(
       `${fechaSeleccionada.toLocaleDateString()} - ${horarioSeleccionado}`,
     );
@@ -72,17 +74,20 @@ function FormularioConCalendario({
   }, [items, fechaSeleccionada]);
 
   return (
-    <div className="flex flex-col md:pt-5">
-      <h3 className="md:pb-2 pb-5 text-xl">Selecciona una fecha:</h3>
+    <div className="flex w-full flex-col items-center md:pt-5">
+      <h3 className="pb-3 text-xl">Selecciona una fecha:</h3>
       <Calendar
         onChange={(value) => manejarFechaSeleccionada(value as Date)}
         value={fechaSeleccionada}
+        minDate={new Date()}
+        next2Label={null}
+        prev2Label={null}
       />
 
-      <h3 className="pb-5 pt-1 md:py-2 text-base">
+      <h3 className="pb-6 pt-1 text-base md:py-2">
         Horarios para el {fechaSeleccionada.toLocaleDateString()}
       </h3>
-      <ul className="grid grid-cols-3 md:grid-cols-4 gap-2">
+      <ul className="grid w-full grid-cols-3 gap-2 md:grid-cols-4">
         {horarios.map((horario, index) => (
           <button
             onClick={() => handleHrs(horario.hora, index)}
@@ -99,6 +104,11 @@ function FormularioConCalendario({
           </button>
         ))}
       </ul>
+      <div className="flex min-h-8 w-full min-w-full items-start">
+        {hora === "" && (
+          <p className="mt-3 text-sm text-red-600">Ingrese fecha y hora</p>
+        )}
+      </div>
     </div>
   );
 }
