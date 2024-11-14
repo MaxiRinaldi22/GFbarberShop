@@ -7,7 +7,7 @@ export function Hero() {
   return (
     <section className="relative w-full">
       <div className="relative md:hidden">
-        <Image src={hero} className="h-[40vh] w-full" alt="Foto de un corte" />
+        <Image src={hero} priority className="h-[40vh] w-full" alt="Foto de un corte" />
       </div>
       <div className="hidden w-full md:block">
         <Image
@@ -24,7 +24,7 @@ export function Hero() {
           NUESTRA PASION
         </span>
       </h1>
-      <button className="absolute left-[50%] top-[75%] translate-x-[-50%] translate-y-[-50%] rounded-xl border-2 border-white px-6 py-2 text-xl font-[500] text-white transition duration-300 hover:bg-white hover:text-black">
+      <button className="absolute  left-[50%] top-[75%] translate-x-[-50%] translate-y-[-50%] rounded-xl border-2 border-white px-6 py-2 text-lg font-[500] text-white transition duration-300 hover:bg-white hover:text-black">
         <Link href="/agenda">Agendá tu hora</Link>
       </button>
     </section>
