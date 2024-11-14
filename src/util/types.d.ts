@@ -1,4 +1,4 @@
 export type AdminContextType = {
-  admin: boolean;
-  setAdmin: React.Dispatch<React.SetStateAction<boolean>>;
+  admin: boolean | null;
+  setAdmin: React.Dispatch<React.SetStateAction<boolean | null>>;
 };
