@@ -2,6 +2,7 @@ import Image from "next/image";
 import hero from "/public/hero.png";
 import heroPc from "/public/heroPc.jpeg";
 import Link from "next/link";
+import { playfair } from "@/util/font";
 
 export function Hero() {
   return (
@@ -22,11 +23,11 @@ export function Hero() {
           style={{ objectPosition: "center 34%" }}
         />
       </div>
-      <div className="absolute inset-0 h-[40vh] bg-black opacity-40 md:h-[50vh]"></div>
-      <h1 className="absolute left-[50%] top-[30%] flex w-full translate-x-[-50%] translate-y-[-50%] flex-col items-center gap-1 text-3xl font-[500] text-white md:mt-5 md:text-4xl">
-        <span>Tu estilo </span>
-        <span>Tu elección</span>
-        <span className="mt-5 text-4xl font-semibold tracking-wider md:mt-9 md:text-5xl">
+      <div className="absolute inset-0 h-[40vh] bg-black opacity-60 md:opacity-40 md:h-[50vh]"></div>
+      <h1 className="absolute left-[50%] top-[37%] md:top-[30%] flex w-full translate-x-[-50%] translate-y-[-50%] flex-col items-center gap-1 text-3xl font-[500] text-white md:mt-5 md:text-4xl">
+        <span>TU ESTILO</span>
+        <span>TU ELECCION</span>
+        <span className={`${playfair.className} mt-5 text-4xl font-semibold tracking-wider md:mt-9 md:text-6xl`}>
           NUESTRA PASION
         </span>
       </h1>

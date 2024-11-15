@@ -12,7 +12,7 @@ export default function Login() {
 
   const handleLogin = () => {
     if (password === process.env.ADMIN_PASSWORD as string) {
-      router.push("/dashboard");
+      router.push("/panel");
       setAdmin(true);
     } else {
       alert("Incorrect password");
@@ -20,7 +20,7 @@ export default function Login() {
   };
 
   return (
-    <div className="flex h-full w-full mt-[23vh] flex-col items-center justify-center gap-10">
+    <div className="flex min-h-screen h-full w-full flex-col items-center justify-center gap-10">
       <section>
         <div className="relative mx-auto w-full max-w-7xl items-center bg-white px-5 py-12 md:px-12 lg:px-20">
           <div className="mx-auto w-full max-w-md sm:px-4 md:w-96 md:max-w-sm md:px-0">

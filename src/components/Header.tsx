@@ -7,7 +7,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 
-import logo from "/public/logoBW.png";
+import logo from "/public/logo.png";
 
 function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
