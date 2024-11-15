@@ -57,6 +57,7 @@ export default function FormularioNormal({ hora }: { hora: string }) {
       name !== "" &&
       validPhone &&
       phone !== "" &&
+      validMail &&
       mail !== "" &&
       hora !== ""
     ) {
