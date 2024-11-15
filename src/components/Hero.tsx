@@ -5,7 +5,7 @@ import hero from "/public/hero.png";
 import heroPc from "/public/heroPc.jpeg";
 import Link from "next/link";
 import AOS from "aos";
-import { playfair } from "@/util/font";
+import { lora } from "@/util/font";
 import { useEffect } from "react";
 
 export function Hero() {
@@ -31,18 +31,18 @@ export function Hero() {
           style={{ objectPosition: "center 34%" }}
         />
       </div>
-      <div className="absolute inset-0 h-550vh] bg-black opacity-60 md:h-[50vh] md:opacity-40"></div>
-      <h1 className="absolute left-[50%] top-[37%] flex w-full translate-x-[-50%] translate-y-[-50%] flex-col items-center gap-1 text-3xl font-[500] text-white md:top-[30%] md:mt-5 md:text-4xl">
+      <div className="absolute inset-0  bg-black opacity-60 md:h-[50vh] md:opacity-50"></div>
+      <h1 className="absolute left-[50%] top-[37%] flex w-full translate-x-[-50%] translate-y-[-50%] flex-col items-center gap-2 text-3xl font-[500] text-white md:top-[30%] md:mt-5 md:text-4xl">
         <span data-aos="fade-right">TU ESTILO</span>
         <span data-aos="fade-left">TU ELECCION</span>
         <span
           data-aos="zoom-in"
-          className={`${playfair.className} mt-5 text-4xl font-semibold tracking-wider md:mt-9 md:text-6xl`}
+          className={`${lora.className} mt-5 text-4xl font-semibold tracking-wider md:mt-9 md:text-6xl`}
         >
           NUESTRA PASION
         </span>
       </h1>
-      <button className="absolute left-[50%] top-[75%] translate-x-[-50%] translate-y-[-50%] rounded-xl border-2 border-white px-6 py-2 text-lg font-[500] text-white transition duration-300 hover:bg-white hover:text-black">
+      <button className="absolute left-[50%] top-[75%] translate-x-[-50%] translate-y-[-50%] rounded-xl border-2 border-white px-6 py-2 md:text-2xl text-lg font-[500] text-white transition duration-300 hover:bg-white hover:text-black">
         <Link href="/agenda">Agendá tu hora</Link>
       </button>
     </section>

@@ -2,15 +2,17 @@ import Image from "next/image";
 
 export function Footer() {
   return (
-    <footer className="flex h-fit flex-col items-center justify-between gap-3 p-5 md:px-[20%]">
+    <footer className="flex h-fit flex-col items-center justify-between  p-5 md:px-[20%]">
       <div className="h-0.5 w-full bg-gradient-to-r from-transparent via-black to-transparent"></div>
 
-      <div className="flex flex-col items-center gap-3 md:gap-16 md:flex-row md:py-5">
-        <Image src="/logo.png" alt="Logo" width={150} height={150}></Image>
+      <div className="flex flex-col items-center md:flex-row md:gap-16 md:py-5">
+        <div className="py-5">
+          <Image src="/logo.png" alt="Logo" width={150} height={150}></Image>
+        </div>
 
         <div className="h-0.5 w-full bg-gradient-to-r from-transparent via-black to-transparent md:hidden"></div>
 
-        <div className="flex flex-col gap-2 md:gap-3">
+        <div className="flex flex-col gap-3 py-5">
           <div className="flex w-full justify-start gap-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
