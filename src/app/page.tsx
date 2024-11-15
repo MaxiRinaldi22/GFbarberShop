@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <section className="px-10 py-5 flex flex-col md:flex-row w-full md:justify-center md:items-center md:gap-24 md:h-[40vh]"> 
+      <section className="flex w-full flex-col px-10 py-5 md:h-[40vh] md:flex-row md:items-center md:justify-center md:gap-24">
         {CARD_ITEMS.map((item) => (
           <Card key={item.title} title={item.title} img={item.img} />
         ))}

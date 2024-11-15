@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import "../components/CustomCalendar.css";
+import Aos from "aos";
 
 function FormularioConCalendario({
   setHora,
@@ -73,8 +74,12 @@ function FormularioConCalendario({
     setHorarios(horariosDisponibles);
   }, [items, fechaSeleccionada]);
 
+  useEffect(() => {
+    Aos.init({ duration: 1500 }); 
+  }, []);
+
   return (
-    <div className="flex w-full flex-col items-center md:pt-5">
+    <div data-aos="fade-right" className="flex w-full flex-col items-center md:pt-5">
       <h3 className="pb-3 text-xl">Selecciona una fecha:</h3>
       <Calendar
         onChange={(value) => manejarFechaSeleccionada(value as Date)}

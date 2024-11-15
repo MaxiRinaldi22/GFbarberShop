@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect } from "react";
+import Aos from "aos"
 import Image from "next/image";
 
 // Imagenes
@@ -8,13 +12,19 @@ import cliente4 from "/public/clientes/cliente4.png";
 import cliente5 from "/public/clientes/cliente5.png";
 
 export function Imagenes() {
+
+  useEffect(() => {
+    Aos.init({ duration: 1800 }); 
+  }, []);
+
+
   return (
-    <section className="flex flex-col items-center  justify-center gap-5 px-5 md:flex-row">
-      <Image src={cliente1} alt="Clientes"  width={360} height={560}></Image>
-      <Image src={cliente2} alt="Clientes" width={360} height={560} ></Image>
-      <Image src={cliente3} alt="Clientes"  width={360} height={560}></Image>
-      <Image src={cliente4} alt="Clientes" width={360} height={560} ></Image>
-      <Image src={cliente5} alt="Clientes"  width={360} height={560}></Image>
+    <section className="flex flex-col items-center justify-center gap-5 px-5 md:flex-row">
+      <Image data-aos="fade-right" src={cliente1} alt="Clientes" width={360} height={560}></Image>
+      <Image data-aos="fade-left" src={cliente2} alt="Clientes" width={360} height={560}></Image>
+      <Image data-aos="fade-right" src={cliente3} alt="Clientes" width={360} height={560}></Image>
+      <Image data-aos="fade-left" src={cliente4} alt="Clientes" width={360} height={560}></Image>
+      <Image data-aos="fade-right" src={cliente5} alt="Clientes" width={360} height={560}></Image>
     </section>
   );
 }

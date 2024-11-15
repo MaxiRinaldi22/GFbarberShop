@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import db from "../util/firestore";
 import { collection, addDoc } from "firebase/firestore";
+import Aos from "aos";
 
 export default function FormularioNormal({ hora }: { hora: string }) {
   const [name, setName] = useState("");
@@ -65,12 +66,15 @@ export default function FormularioNormal({ hora }: { hora: string }) {
     }
   }, [name, phone, mail, hora, validPhone]);
 
-  console.log(validPhone);
+  useEffect(() => {
+    Aos.init({ duration: 1500 }); 
+  }, []);
 
   return (
     <form
       className="flex w-full flex-col gap-10 md:p-4"
       onSubmit={(e) => handleSubmit(e)}
+      data-aos="fade-left"
     >
       <div className="flex flex-col gap-3">
         <label htmlFor="name" className="text-xl">
