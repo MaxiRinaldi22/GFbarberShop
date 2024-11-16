@@ -72,14 +72,14 @@ function Header() {
 
           <div
             onClick={() => setMobileMenuOpen(false)}
-            className="flex h-[80vh] flex-col items-center justify-center gap-3 text-3xl"
+            className="flex h-[80vh] tracking-wider flex-col items-center justify-center gap-3 text-4xl"
           >
-            <Link href="/" className={isActive("/") ? "border-b-2" : ""}>
+            <Link href="/" className={`p-2 px-2 ${isActive("/") ? "border-b-2" : ""}`}>
               Inicio
             </Link>
             <Link
               href="/agenda"
-              className={`p-1 px-2 ${isActive("/agenda") ? "border-b-2" : ""}`}
+              className={`p-2 px-2 ${isActive("/agenda") ? "border-b-2" : ""}`}
             >
               Agenda
             </Link>

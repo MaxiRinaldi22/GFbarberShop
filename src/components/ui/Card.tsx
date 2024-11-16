@@ -10,14 +10,14 @@ export function Card({ title, img }: CardData) {
   }, []);
 
   return (
-    <div className="flex items-center justify-around md:flex-col gap-5">
+    <div className="flex items-center justify-around gap-8 md:flex-col">
       <div className="hidden md:block">
         <Image src={img} width={160} height={155} alt={title} />
       </div>
       <div className="md:hidden">
         <Image src={img} width={128.57} height={125} alt={title} />
       </div>
-      <p className="text-2xl font-semibold md:block">{title}</p>
+      <p className="text-xl font-semibold md:block">{title}</p>
     </div>
   );
 }
