@@ -122,7 +122,7 @@ export function Hero() {
         ref={logoRef}
         className="absolute left-1/2 top-1/2 flex h-[500px] w-full -translate-x-1/2 -translate-y-1/2 transform items-center justify-center"
       >
-        <Image src="/logow.png" alt="Logo" width={350} height={350} />
+        <Image src="/logoW.png" alt="Logo" width={350} height={350} />
       </div>
 
       <h1 className="absolute left-[50%] top-[37%] flex w-full translate-x-[-50%] translate-y-[-50%] flex-col items-center gap-2 text-3xl font-[500] text-white md:top-[30%] md:mt-5 md:text-4xl">
