@@ -4,13 +4,13 @@ import Aos from "aos";
 import { CardData } from "@/util/types";
 import Image from "next/image";
 
-export function Card({ title, img }: CardData) {
+export function Card({ title, img, id }: CardData) {
   useEffect(() => {
     Aos.init({ duration: 1800 });
   }, []);
 
   return (
-    <div className="flex items-center justify-around gap-8 md:flex-col">
+    <div data-aos={id % 2 === 0 ? "fade-right" : "fade-left"} className="flex items-center justify-around gap-8 md:flex-col">
       <div className="hidden md:block">
         <Image src={img} width={160} height={155} alt={title} />
       </div>

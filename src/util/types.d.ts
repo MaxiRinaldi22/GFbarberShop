@@ -8,4 +8,5 @@ export type AdminContextType = {
 export type CardData = {
   title: string;
   img: StaticImageData;
+  id: number
 }
