@@ -26,7 +26,7 @@ export function Hero() {
         y: 0,
         opacity: 1,
         duration: 3,
-        ease: "power4.out",
+        ease: "power4.inOut",
       },
     );
 
@@ -35,7 +35,7 @@ export function Hero() {
       opacity: 0,
       duration: 3,
       ease: "power4.out",
-      delay: 2,
+      delay: 3.2,
     });
 
     gsap.fromTo(
@@ -48,7 +48,7 @@ export function Hero() {
         y: 0,
         opacity: 1,
         duration: 1.5,
-        delay: 2.5,
+        delay: 4.3,
         ease: "slow",
       },
     );
@@ -63,7 +63,7 @@ export function Hero() {
         y: 0,
         opacity: 1,
         duration: 1.7,
-        delay: 2.5,
+        delay: 4.3,
         ease: "slow",
       },
     );
@@ -78,7 +78,7 @@ export function Hero() {
         y: -100,
         opacity: 1,
         duration: 1.5,
-        delay: 2.5,
+        delay: 4.3,
         ease: "slow",
       },
     );
@@ -89,13 +89,22 @@ export function Hero() {
         opacity: 0,
       },
       {
-        "clip-path": "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
+        "clip-path": " polygon(0 0, 100% 0, 100% 100%, 0 100%)",
         opacity: 1,
         duration: 2,
-        delay: 3,
-        ease: "power4.in",
+        delay: 4,
+        ease: "power1.in",
       },
     );
+
+    gsap.to(btnRef.current, {
+      scale: 1.1,
+      repeat: -1,
+      yoyo: true,
+      delay: 6,
+      duration: 0.8,
+      ease: "sine.inOut",
+    });
   }, []);
 
   return (
@@ -133,7 +142,7 @@ export function Hero() {
         <span
           className={`${lora.className} mt-5 text-4xl font-semibold tracking-wider opacity-0 md:mt-9 md:text-6xl`}
           style={{
-            clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0% 100%)",
+            clipPath: " polygon(0 0, 0 0, 0 100%, 0% 100%)",
           }}
           ref={nuestroRef}
         >
@@ -141,7 +150,7 @@ export function Hero() {
         </span>
       </h1>
       <div className="opacity-0" ref={btnRef}>
-        <button className="absolute left-[50%] top-[75%] translate-x-[-50%] translate-y-[-50%] rounded-xl border-2 border-white px-6 py-2 text-lg font-[500] text-white transition duration-300 hover:bg-white hover:text-black md:text-2xl">
+        <button className="will-change-transform absolute left-[50%] top-[75%] translate-x-[-50%] translate-y-[-50%] rounded-xl border-2 border-white px-6 py-2 text-lg font-[500] text-white transition duration-300 hover:bg-white hover:text-black md:text-2xl">
           <Link href="/agenda">Agendá tu hora</Link>
         </button>
       </div>

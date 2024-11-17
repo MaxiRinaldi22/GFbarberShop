@@ -69,10 +69,11 @@ export default function Dashboard() {
   const hoy = new Date().toISOString().split("T")[0];
   const tomorrow = new Date(new Date().getTime() + 24 * 60 * 60 * 1000).toISOString().split("T")[0];
 
+
   return (
     <section className="flex h-full w-full flex-col items-center justify-center md:py-10">
       <h2 className="pb-10 text-3xl font-semibold">P A N E L</h2>
-      <div className="flex w-full flex-col gap-3 px-5 md:w-fit md:px-0">
+      <div className="min-h-screen flex w-full flex-col gap-3 px-5 md:w-fit md:px-0">
         {Object.entries(groupedItems).map(([date, items]) => (
           <div
             key={date}
@@ -90,6 +91,7 @@ export default function Dashboard() {
                   <DashboardComponent text={item.name} title="Nombre" />
                   <DashboardComponent text={item.phone} title="Telefono" />
                   <DashboardComponent text={item.mail} title="Mail" />
+                  <DashboardComponent text={item.tipo} title="Tipo" />
                   <DashboardComponent text={item.hora} title="Hora" />
                   <DeleteItem id={item.id} />
                 </div>

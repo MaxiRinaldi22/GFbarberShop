@@ -11,7 +11,7 @@ export default function Login() {
   const router = useRouter();
 
   const handleLogin = () => {
-    if (password === process.env.ADMIN_PASSWORD as string) {
+    if (password === process.env.NEXT_PUBLIC_ADMIN_PASSWORD as string) {
       router.push("/panel");
       setAdmin(true);
     } else {

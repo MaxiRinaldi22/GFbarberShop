@@ -26,3 +26,18 @@ export const CARD_ITEMS = [
     img: color,
   },
 ];
+
+export const TYPE_BTNS = [
+  {
+    title: "Corte",
+    type: "corte"
+  },
+  {
+    title: "Mechas",
+    type: "mechas"
+  },
+  {
+    title: "Color",
+    type: "color"
+  }
+];
