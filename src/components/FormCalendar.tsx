@@ -66,11 +66,12 @@ function FormularioConCalendario({
       `${fechaSeleccionada.toLocaleDateString()} - ${horarioSeleccionado}`,
     );
   }, [fechaSeleccionada, horarioSeleccionado]);
+  
 
   useEffect(() => {
     const fecha = fechaSeleccionada.toLocaleDateString();
     const isAfterDecember12 =
-      new Date(fechaSeleccionada) >= new Date("2024-12-12");
+      new Date(fechaSeleccionada) >= new Date("2024-12-20");
 
     const horariosBase = isAfterDecember12
       ? [
