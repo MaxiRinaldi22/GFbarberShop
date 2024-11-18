@@ -66,7 +66,6 @@ function FormularioConCalendario({
       `${fechaSeleccionada.toLocaleDateString()} - ${horarioSeleccionado}`,
     );
   }, [fechaSeleccionada, horarioSeleccionado]);
-  
 
   useEffect(() => {
     const fecha = fechaSeleccionada.toLocaleDateString();
@@ -75,6 +74,8 @@ function FormularioConCalendario({
 
     const horariosBase = isAfterDecember12
       ? [
+          { hora: "15:00", disponible: true },
+          { hora: "16:00", disponible: true },
           { hora: "17:00", disponible: true },
           { hora: "18:00", disponible: true },
           { hora: "19:00", disponible: true },
