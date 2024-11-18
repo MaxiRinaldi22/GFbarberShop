@@ -1,9 +1,9 @@
 "use client";
+
 import { useEffect, useState } from "react";
-import db from "../util/firestore";
-import { collection, addDoc } from "firebase/firestore";
 import Aos from "aos";
 import { TYPE_BTNS } from "@/util/const";
+import { handleSubmit } from "@/util/form/actions";
 
 export default function FormularioNormal({ hora }: { hora: string }) {
   const [name, setName] = useState("");
@@ -15,26 +15,15 @@ export default function FormularioNormal({ hora }: { hora: string }) {
   const [submit, setSubmit] = useState(false);
   const [tipo, setTipo] = useState<"" | "corte" | "mecha" | "color">("");
 
-  const uruguayanPhoneRegex = /^(09\d{7}|2\d{7})$/;
-
-  const handleFormSubmit = async () => {
-    try {
-      await addDoc(collection(db, "clientes"), {
-        name: name,
-        phone: phone,
-        mail: mail,
-        hora: hora,
-        tipo: tipo,
-      });
-
-      setSubmit(true);
-      setMail("");
-      setPhone("");
-      setName("");
-    } catch (error) {
-      console.error("Error al enviar el formulario:", error);
-    }
+  const formData = {
+    name,
+    phone,
+    mail,
+    hora,
+    tipo,
   };
+
+  const uruguayanPhoneRegex = /^(09\d{7}|2\d{7})$/;
 
   useEffect(() => {
     const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
@@ -49,12 +38,6 @@ export default function FormularioNormal({ hora }: { hora: string }) {
     }
   }, [phone]);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    handleFormSubmit();
-  };
-
   useEffect(() => {
     if (
       name !== "" &&
@@ -62,23 +45,38 @@ export default function FormularioNormal({ hora }: { hora: string }) {
       phone !== "" &&
       validMail &&
       mail !== "" &&
-      hora !== ""
+      hora !== "" &&
+      tipo !== ""
     ) {
       setSendBtn(true);
     } else {
       setSendBtn(false);
     }
-  }, [name, phone, mail, hora, validPhone]);
+  }, [name, phone, mail, hora, validPhone, tipo]);
 
   useEffect(() => {
     Aos.init({ duration: 1500 });
   }, []);
 
+  const handleCleanForm = async () => {
+    await setSubmit(true);
+    await setMail("");
+    await setPhone("");
+    await setName("");
+  };
+
+  const handlePeventForm = (e: React.FormEvent) => {
+    e.preventDefault();
+    handleSubmit({ formData });
+    handleCleanForm();
+  };
+
   return (
     <form
       className="flex w-full flex-col gap-5 md:p-4"
-      onSubmit={(e) => handleSubmit(e)}
+      onSubmit={(e) => handlePeventForm(e)}
       data-aos="fade-left"
+      method="POST"
     >
       <div className="flex flex-col gap-3">
         <label htmlFor="name" className="text-xl">
@@ -131,8 +129,8 @@ export default function FormularioNormal({ hora }: { hora: string }) {
         </label>
       </div>
 
-      <div className="flex flex-col w-full">
-        <div className="flex gap-2 w-full justify-between">
+      <div className="flex w-full flex-col">
+        <div className="flex w-full justify-between gap-2">
           {TYPE_BTNS.map((btn) => (
             <button
               className={`${btn.type === tipo ? "bg-black text-white" : ""} w-full rounded-xl border px-6 py-2.5 text-center text-sm font-[500] shadow-lg`}

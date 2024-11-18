@@ -86,12 +86,14 @@ export function Hero() {
     gsap.fromTo(
       nuestroRef.current,
       {
+        x: 270,
         opacity: 0,
       },
       {
+        x: 0,
         "clip-path": " polygon(0 0, 100% 0, 100% 100%, 0 100%)",
         opacity: 1,
-        duration: 2,
+        duration: 3,
         delay: 4,
         ease: "power1.in",
       },

@@ -11,7 +11,7 @@ import DeleteItem from "@/components/ui/DeleteButton";
 
 export default function Dashboard() {
   const [items, setItems] = useState<DocumentData[]>([]);
-
+  const [reRender, setReRender] = useState(false);
   const { admin } = useAdmin();
   const router = useRouter();
 
@@ -44,7 +44,7 @@ export default function Dashboard() {
       }
     };
     fetchItems();
-  }, []);
+  }, [reRender]);
 
   const convertToDate = (hora: string) => {
     const [datePart, timePart] = hora.split(" - ");
@@ -64,23 +64,53 @@ export default function Dashboard() {
     }, {});
   };
 
-  const groupedItems = groupByDate(items);
+  let groupedItems = groupByDate(items);
 
-  const hoy = new Date().toISOString().split("T")[0];
-  const tomorrow = new Date(new Date().getTime() + 24 * 60 * 60 * 1000).toISOString().split("T")[0];
+  // Convertir en uno para usar en la parte de abajo
+  const hoy = new Date();
 
+  const filteredItems = Object.fromEntries(
+    Object.entries(groupedItems).filter(([date]) => {
+      const [day, month, year] = date.split("/").map(Number);
+      const parsedDate = new Date(year, month - 1, day);
+
+      const normalizedToday = new Date(
+        hoy.getFullYear(),
+        hoy.getMonth(),
+        hoy.getDate(),
+      );
+      const normalizedDate = new Date(
+        parsedDate.getFullYear(),
+        parsedDate.getMonth(),
+        parsedDate.getDate(),
+      );
+
+      return normalizedDate >= normalizedToday;
+    }),
+  );
+
+  groupedItems = filteredItems;
+
+  const hoyUI = new Date().toISOString().split("T")[0];
+  const tomorrow = new Date(new Date().getTime() + 24 * 60 * 60 * 1000)
+    .toISOString()
+    .split("T")[0];
 
   return (
     <section className="flex h-full w-full flex-col items-center justify-center md:py-10">
       <h2 className="pb-10 text-3xl font-semibold">P A N E L</h2>
-      <div className="min-h-screen flex w-full flex-col gap-3 px-5 md:w-fit md:px-0">
+      <div className="flex min-h-screen w-full flex-col gap-3 px-5 md:w-fit md:px-0">
         {Object.entries(groupedItems).map(([date, items]) => (
           <div
             key={date}
             className="flex w-full flex-col items-start justify-center"
           >
             <h3 className="flex pb-4 text-xl font-semibold">
-              {date === hoy.split("-").reverse().join("/") ? "Hoy"  : date ===  tomorrow.split("-").reverse().join("/") ? "Mañana" : date}
+              {date === hoyUI.split("-").reverse().join("/")
+                ? "Hoy"
+                : date === tomorrow.split("-").reverse().join("/")
+                  ? "Mañana"
+                  : date}
             </h3>
             <div className="flex w-full flex-col gap-5">
               {items.map((item) => (
@@ -93,7 +123,11 @@ export default function Dashboard() {
                   <DashboardComponent text={item.mail} title="Mail" />
                   <DashboardComponent text={item.tipo} title="Tipo" />
                   <DashboardComponent text={item.hora} title="Hora" />
-                  <DeleteItem id={item.id} />
+                  <DeleteItem
+                    id={item.id}
+                    reRender={reRender}
+                    setReRender={setReRender}
+                  />
                 </div>
               ))}
             </div>

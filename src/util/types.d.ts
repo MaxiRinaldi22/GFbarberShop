@@ -10,3 +10,11 @@ export type CardData = {
   img: StaticImageData;
   id: number
 }
+
+export type FormSubmitType = {
+  name: string;
+  phone: string;
+  mail: string
+  hora: string;
+  tipo: "" | "corte" | "mecha" | "color";
+}
