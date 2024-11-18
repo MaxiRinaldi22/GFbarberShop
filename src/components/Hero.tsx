@@ -122,6 +122,7 @@ export function Hero() {
       <div className="hidden w-full md:block">
         <Image
           src={heroPc}
+          priority
           className="h-[40vh] w-full object-cover md:h-[50vh]"
           alt="Foto de un corte"
           style={{ objectPosition: "center 34%" }}

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export function Footer() {
   return (
-    <footer className="flex h-fit flex-col items-center justify-between  p-5 md:px-[20%]">
+    <footer className="flex h-fit flex-col items-center justify-between p-5 md:px-[20%]">
       <div className="h-0.5 w-full bg-gradient-to-r from-transparent via-black to-transparent"></div>
 
       <div className="flex flex-col items-center md:flex-row md:gap-16 md:py-5">
@@ -26,7 +26,13 @@ export function Footer() {
             <p className="text-xl text-black">(+598) 099 250 338</p>
           </div>
 
-          <div className="flex w-full gap-3">
+          <div >
+          <a
+          className="flex w-full gap-3"
+              href="
+            https://www.google.com/maps?q=-34.87919998168945,-54.97159194946289&z=17&hl=es"
+              target="_blank"
+            >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -36,9 +42,11 @@ export function Footer() {
             >
               <path d="M18.364 17.364L12 23.7279L5.63604 17.364C2.12132 13.8492 2.12132 8.15076 5.63604 4.63604C9.15076 1.12132 14.8492 1.12132 18.364 4.63604C21.8787 8.15076 21.8787 13.8492 18.364 17.364ZM12 13C13.1046 13 14 12.1046 14 11C14 9.89543 13.1046 9 12 9C10.8954 9 10 9.89543 10 11C10 12.1046 10.8954 13 12 13Z"></path>
             </svg>
-            <p className="text-lg text-black">
-              Barrio san Agustin, Entre Pluton y Venus
-            </p>
+       
+              <p className="text-lg text-black">
+                Barrio san Agustin, Entre Pluton y Venus
+              </p>
+            </a>
           </div>
 
           <div className="w-full justify-start">
