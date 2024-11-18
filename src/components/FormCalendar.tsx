@@ -19,15 +19,19 @@ function FormularioConCalendario({
   const [horarioSeleccionado, setHorarioSeleccionado] = useState("");
   const [selectedHrs, setSelectedHrs] = useState<number>();
   const [horarios, setHorarios] = useState([
+    { hora: "08:00", disponible: true },
     { hora: "09:00", disponible: true },
     { hora: "10:00", disponible: true },
     { hora: "11:00", disponible: true },
     { hora: "12:00", disponible: true },
-    { hora: "13:00", disponible: true },
-    { hora: "14:00", disponible: true },
-    { hora: "15:00", disponible: true },
-    { hora: "16:00", disponible: true },
     { hora: "17:00", disponible: true },
+    { hora: "18:00", disponible: true },
+    { hora: "19:00", disponible: true },
+    { hora: "20:00", disponible: true },
+    { hora: "21:00", disponible: true },
+    { hora: "22:00", disponible: true },
+    { hora: "23:00", disponible: true },
+    { hora: "00:00", disponible: true },
   ]);
   const [items, setItems] = useState<DocumentData[]>([]);
 
@@ -65,21 +69,55 @@ function FormularioConCalendario({
 
   useEffect(() => {
     const fecha = fechaSeleccionada.toLocaleDateString();
-    const horariosDisponibles = horarios.map((horario) => ({
+    const isAfterDecember12 =
+      new Date(fechaSeleccionada) >= new Date("2024-12-12");
+
+    const horariosBase = isAfterDecember12
+      ? [
+          { hora: "17:00", disponible: true },
+          { hora: "18:00", disponible: true },
+          { hora: "19:00", disponible: true },
+          { hora: "20:00", disponible: true },
+          { hora: "21:00", disponible: true },
+          { hora: "22:00", disponible: true },
+          { hora: "23:00", disponible: true },
+          { hora: "00:00", disponible: true },
+        ]
+      : [
+          { hora: "08:00", disponible: true },
+          { hora: "09:00", disponible: true },
+          { hora: "10:00", disponible: true },
+          { hora: "11:00", disponible: true },
+          { hora: "12:00", disponible: true },
+          { hora: "17:00", disponible: true },
+          { hora: "18:00", disponible: true },
+          { hora: "19:00", disponible: true },
+          { hora: "20:00", disponible: true },
+          { hora: "21:00", disponible: true },
+          { hora: "22:00", disponible: true },
+          { hora: "23:00", disponible: true },
+          { hora: "00:00", disponible: true },
+        ];
+
+    const horariosDisponibles = horariosBase.map((horario) => ({
       ...horario,
       disponible: !items.some(
         (item) => item.hora === `${fecha} - ${horario.hora}`,
       ),
     }));
+
     setHorarios(horariosDisponibles);
   }, [items, fechaSeleccionada]);
 
   useEffect(() => {
-    Aos.init({ duration: 1500 }); 
+    Aos.init({ duration: 1500 });
   }, []);
 
   return (
-    <div data-aos="fade-right" className="flex w-full flex-col items-center md:pt-5">
+    <div
+      data-aos="fade-right"
+      className="flex w-full flex-col items-center md:pt-5"
+    >
       <h3 className="pb-3 text-xl">Selecciona una fecha:</h3>
       <Calendar
         onChange={(value) => manejarFechaSeleccionada(value as Date)}

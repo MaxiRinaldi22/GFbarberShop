@@ -94,7 +94,7 @@ export async function sendEmail({ to }: Params) {
     <div class="container">
       <!-- Cabecera -->
       <div class="header">
-        <img src="https://www.gfbarberstudio.com/logoBW.png" alt="Logo" />
+        <img src="https://www.gfbarberstudio.com/logoBW.png" alt="Logo GF Barber Studio"/>
       </div>
       <!-- Contenido principal -->
       <div class="content">
