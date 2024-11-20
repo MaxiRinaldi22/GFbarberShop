@@ -5,7 +5,7 @@ import Aos from "aos";
 import { TYPE_BTNS } from "@/util/const";
 import { handleSubmit } from "@/util/form/actions";
 
-export default function FormularioNormal({ hora }: { hora: string }) {
+export default function FormularioNormal({ hora, setHora }: { hora: string, setHora: React.Dispatch<React.SetStateAction<string>> }) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [mail, setMail] = useState("");
@@ -58,11 +58,13 @@ export default function FormularioNormal({ hora }: { hora: string }) {
     Aos.init({ duration: 1500 });
   }, []);
 
-  const handleCleanForm = async () => {
-    await setSubmit(true);
-    await setMail("");
-    await setPhone("");
-    await setName("");
+  const handleCleanForm =  () => {
+     setSubmit(true);
+     setMail("");
+     setName("");
+     setPhone("");
+     setTipo("");
+     setHora("");
   };
 
   const handlePeventForm = (e: React.FormEvent) => {

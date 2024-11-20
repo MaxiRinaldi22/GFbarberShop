@@ -1,19 +1,17 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { Dialog, DialogPanel, PopoverGroup } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { gsap } from "gsap";
 
 // Logo
 import logo from "/public/logo.png";
 
 function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const mobileRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
   const isActive = (path: string) => {
@@ -22,24 +20,10 @@ function Header() {
 
   const handleOpen = () => {
     setMobileMenuOpen(true);
-    handleOpenAnimation();
   };
 
   const handleClose = () => {
     setMobileMenuOpen(false);
-    handleCloseAnimation();
-  };
-
-  const handleOpenAnimation = () => {
-    gsap.to(mobileRef.current, {
-      clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
-      duration: 2,
-      ease: "slow.in",
-    });
-  };
-
-  const handleCloseAnimation = () => {
-    console.log("close");
   };
 
   return (
@@ -95,7 +79,6 @@ function Header() {
           </div>
 
           <div
-            ref={mobileRef}
             onClick={handleClose}
             className="flex h-full flex-col items-center justify-center gap-3 pb-[9vh] text-4xl tracking-wider"
             style={{ clipPath: " polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}

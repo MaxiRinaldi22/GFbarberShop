@@ -3,7 +3,6 @@
 import db from "@/util/firestore";
 import { collection, DocumentData, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
-
 import { useRouter } from "next/navigation";
 import { useAdmin } from "@/hooks/useAdmin";
 import { DashboardComponent } from "@/components/ui/DashboardComponent";
