@@ -11,13 +11,18 @@ import Aos from "aos";
 function FormularioConCalendario({
   setHora,
   hora,
+  selectedHrs,
+  setSelectedHrs,
 }: {
   setHora: React.Dispatch<React.SetStateAction<string>>;
   hora: string;
+  selectedHrs: number | null;
+  setSelectedHrs: React.Dispatch<React.SetStateAction<number | null>>;
+  
 }) {
   const [fechaSeleccionada, setFechaSeleccionada] = useState<Date>(new Date());
   const [horarioSeleccionado, setHorarioSeleccionado] = useState("");
-  const [selectedHrs, setSelectedHrs] = useState<number>();
+ 
   const [horarios, setHorarios] = useState([
     { hora: "08:00", disponible: true },
     { hora: "09:00", disponible: true },

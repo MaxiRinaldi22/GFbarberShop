@@ -5,7 +5,7 @@ import Aos from "aos";
 import { TYPE_BTNS } from "@/util/const";
 import { handleSubmit } from "@/util/form/actions";
 
-export default function FormularioNormal({ hora, setHora }: { hora: string, setHora: React.Dispatch<React.SetStateAction<string>> }) {
+export default function FormularioNormal({ hora, setHora, setSelectedHrs }: { hora: string, setHora: React.Dispatch<React.SetStateAction<string>>, setSelectedHrs: React.Dispatch<React.SetStateAction<number | null>> }) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [mail, setMail] = useState("");
@@ -65,6 +65,7 @@ export default function FormularioNormal({ hora, setHora }: { hora: string, setH
      setPhone("");
      setTipo("");
      setHora("");
+     setSelectedHrs(null);
   };
 
   const handlePeventForm = (e: React.FormEvent) => {
