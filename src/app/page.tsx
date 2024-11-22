@@ -1,6 +1,7 @@
 import { Hero } from "@/components/Hero";
 import { Card } from "@/components/ui/Card";
 import { Imagenes } from "@/components/ui/Imagenes";
+
 import { CARD_ITEMS } from "@/util/const";
 import { lora } from "@/util/font";
 
