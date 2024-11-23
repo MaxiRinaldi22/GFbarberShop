@@ -71,6 +71,7 @@ export default function FormularioNormal({ hora, setHora, setSelectedHrs }: { ho
   const handlePeventForm = (e: React.FormEvent) => {
     e.preventDefault();
     handleSubmit({ formData });
+    alert("Gracias por confiar en nosotros. Verifica tu correo para confirmar tu cita")
     handleCleanForm();
   };
 
