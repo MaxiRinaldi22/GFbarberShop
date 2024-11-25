@@ -24,11 +24,11 @@ export function Imagenes() {
 
   return (
     <section className="flex flex-col items-center justify-center gap-5 md:gap-1 px-5 md:flex-row">
-      <Image data-aos={animationR} src={cliente1} alt="Cortes fade" width={360} height={560}></Image>
-      <Image data-aos={animationL} src={cliente2} alt="Cortes fade" width={360} height={560}></Image>
-      <Image data-aos={animationR} src={cliente3} alt="Cortes fade" width={360} height={560}></Image>
-      <Image data-aos={animationL} src={cliente4} alt="Cortes fade" width={360} height={560}></Image>
-      <Image data-aos={animationR} src={cliente5} alt="Cortes fade" width={360} height={560}></Image>
+      <Image data-aos={animationR} src={cliente1} alt="Cortes fade modernos" width={360} height={560}></Image>
+      <Image data-aos={animationL} src={cliente2} alt="Cortes fade modernos" width={360} height={560}></Image>
+      <Image data-aos={animationR} src={cliente3} alt="Cortes fade modernos" width={360} height={560}></Image>
+      <Image data-aos={animationL} src={cliente4} alt="Cortes fade modernos" width={360} height={560}></Image>
+      <Image data-aos={animationR} src={cliente5} alt="Cortes fade modernos" width={360} height={560}></Image>
     </section>
   );
 }

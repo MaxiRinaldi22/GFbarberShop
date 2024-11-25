@@ -36,9 +36,9 @@ function Header() {
     >
       <nav className="mx-auto flex w-full max-w-7xl items-center justify-between p-6 lg:px-8">
         <div className="flex lg:flex-1">
-          <a href="#">
+          <Link href="/">
             <Image src={logo} alt="Logo" width={70} />
-          </a>
+          </Link>
         </div>
         <div className="flex lg:hidden">
           <button
@@ -70,9 +70,9 @@ function Header() {
         <div className="fixed inset-0 z-10 h-full" />
         <DialogPanel className="max-h-sreen fixed inset-y-0 right-0 z-10 h-full w-full bg-white sm:ring-1">
           <div className="flex h-[8vh] items-center justify-between p-6 py-10">
-            <a href="#">
+            <Link href="/">
               <Image src={logo} alt="Logo" width={70} />
-            </a>
+            </Link>
             <button onClick={handleClose}>
               <XMarkIcon aria-hidden="true" className="h-6 w-6" />
             </button>
