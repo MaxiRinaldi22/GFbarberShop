@@ -90,10 +90,33 @@ export default function Dashboard() {
 
   groupedItems = filteredItems;
 
-  const hoyUI = new Date().toISOString().split("T")[0];
-  const tomorrow = new Date(new Date().getTime() + 24 * 60 * 60 * 1000)
-    .toISOString()
-    .split("T")[0];
+  const uruguayTimeZone = "America/Montevideo";
+
+  const hoyUI = new Intl.DateTimeFormat("en-CA", {
+    timeZone: uruguayTimeZone,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  })
+    .format(new Date())
+    .split("/")
+    .reverse()
+    .join("-");
+
+  const tomorrow = new Intl.DateTimeFormat("en-CA", {
+    timeZone: uruguayTimeZone,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  })
+    .format(new Date(Date.now() + 24 * 60 * 60 * 1000))
+    .split("/")
+    .reverse()
+    .join("-");
+
+    console.log("hoy", hoyUI);
+    console.log("tomorrow", tomorrow);
+    
 
   return (
     <section className="flex h-full w-full flex-col items-center justify-center md:py-10">
