@@ -100,15 +100,6 @@ function FormularioConCalendario({
           { hora: "00:00", disponible: true },
         ]
       : [
-          { hora: "08:00", disponible: true },
-          { hora: "08:30", disponible: true },
-          { hora: "09:00", disponible: true },
-          { hora: "09:30", disponible: true },
-          { hora: "10:00", disponible: true },
-          { hora: "10:30", disponible: true },
-          { hora: "11:00", disponible: true },
-          { hora: "11:30", disponible: true },
-          { hora: "12:00", disponible: true },
 
           { hora: "17:00", disponible: true },
           { hora: "17:30", disponible: true },
