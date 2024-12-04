@@ -26,6 +26,7 @@ export const handleSubmit = async ({ formData }: submitData) => {
         hora: hora as string,
         name: name as string,
         tipo: tipo as string,
+        phone: phone as string,
       },
     ],
   });

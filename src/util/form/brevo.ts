@@ -8,16 +8,16 @@ appiInstance.setApiKey(
 );
 
 type Params = {
-  to: { email: string; hora: string; name: string; tipo: string }[];
+  to: { email: string; hora: string; name: string; tipo: string, phone: string }[];
 };
 
 export async function sendEmail({ to }: Params) {
   try {
     const day = to[0].hora.split(" - ")[0];
-    const time = to[0].hora.split(" - ")[1]
-    
+    const time = to[0].hora.split(" - ")[1];
 
     const stpmEmail = new brevo.SendSmtpEmail();
+    const ownwerEmail = new brevo.SendSmtpEmail();
 
     stpmEmail.subject = "Confirmación de tu reserva";
     stpmEmail.to = to;
@@ -123,12 +123,81 @@ export async function sendEmail({ to }: Params) {
 </html>
 `;
 
+    ownwerEmail.subject = "Nuevo turno registrado";
+    ownwerEmail.to = [
+      { email: "gfbarberstudio13@gmail.com", name: "GF Barber Studio" },
+    ];
+    ownwerEmail.htmlContent = `
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Email</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f7f7f7;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 600px;
+        margin: 20px auto;
+        background: #ffffff;
+        border: 1px solid #dddddd;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .content {
+        padding: 20px;
+        font-size: 16px;
+        line-height: 1.6;
+        color: #333333;
+      }
+      .footer {
+        text-align: center;
+        padding: 10px;
+        background-color: #eeeeee;
+        font-size: 12px;
+        color: #666666;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <h1>¡Nuevo turno registrado!</h1>
+        <p>Se ha registrado un nuevo turno con los siguientes detalles:</p>
+        <ul>
+          <li><strong>Cliente:</strong> ${to[0].name}</li>
+          <li><strong>Fecha:</strong> ${day}</li>
+          <li><strong>Hora:</strong> ${time}</li>
+          <li><strong>Tipo:</strong> ${to[0].tipo}</li>
+          <li><strong>Email:</strong> ${to[0].email}</li>
+          <li><strong>Telefono:</strong> ${to[0].phone}</li>
+        </ul>
+      </div>
+      <div class="footer">
+        <p>&copy; 2024 GF Barber Studio</p>
+      </div>
+    </div>
+  </body>
+</html>`;
+
     stpmEmail.sender = {
       name: "GF Barber Studio",
       email: "no-reply@gfbarberstudio.com",
     };
 
     await appiInstance.sendTransacEmail(stpmEmail);
+
+    ownwerEmail.sender = {
+      name: "GF Barber Studio",
+      email: "no-reply@gfbarberstudio.com",
+    };
+
+    await appiInstance.sendTransacEmail(ownwerEmail);
   } catch (error) {
     console.error("Error al enviar el correo:", error);
   }

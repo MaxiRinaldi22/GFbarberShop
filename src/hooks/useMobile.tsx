@@ -7,13 +7,11 @@ export function useIsMobile() {
 
   useEffect(() => {
     const checkScreenSize = () => {
-      setIsMobile(window.innerWidth <= 768); // Cambia el valor según tus necesidades
+      setIsMobile(window.innerWidth <= 768); 
     };
 
-    // Verificamos el tamaño inicial
     checkScreenSize();
 
-    // Agregamos un listener para cambios en el tamaño de la ventana
     window.addEventListener("resize", checkScreenSize);
 
     return () => window.removeEventListener("resize", checkScreenSize);
