@@ -1,33 +1,41 @@
 "use client";
 
 import { useAdmin } from "@/hooks/useAdmin";
-import { useRouter } from "next/navigation";
+import { redirect } from "next/navigation";
 import { useState } from "react";
 
 export default function Login() {
   const [password, setPassword] = useState("");
-  
-  const { setAdmin } = useAdmin()
-  const router = useRouter();
+  const { setAdmin } = useAdmin();
 
-  const handleLogin = () => {
-    if (password === process.env.NEXT_PUBLIC_ADMIN_PASSWORD as string) {
-      router.push("/panel");
+  const handleLogin = async () => {
+    const response = await fetch("/api/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ password }),
+    });
+  
+    const data = await response.json();
+  
+    if (response.ok) {
       setAdmin(true);
+      redirect("/panel");
     } else {
-      alert("Incorrect password");
+      alert(data.message || "Incorrect password");
     }
-  };
+  }; 
 
   return (
-    <div className="flex min-h-screen h-full w-full flex-col items-center justify-center gap-10">
+    <div className="flex h-full min-h-screen w-full flex-col items-center justify-center gap-10">
       <section>
         <div className="relative mx-auto w-full max-w-7xl items-center bg-white px-5 py-12 md:px-12 lg:px-20">
           <div className="mx-auto w-full max-w-md sm:px-4 md:w-96 md:max-w-sm md:px-0">
             <div className="flex flex-col">
               <div>
                 <h2 className="pb-10 text-center text-3xl text-black">
-                  ENTRAR AL PANEL 
+                  ENTRAR AL PANEL
                 </h2>
               </div>
             </div>
