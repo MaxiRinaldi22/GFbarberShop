@@ -18,11 +18,10 @@ function FormularioConCalendario({
   hora: string;
   selectedHrs: number | null;
   setSelectedHrs: React.Dispatch<React.SetStateAction<number | null>>;
-  
 }) {
   const [fechaSeleccionada, setFechaSeleccionada] = useState<Date>(new Date());
   const [horarioSeleccionado, setHorarioSeleccionado] = useState("");
- 
+
   const [horarios, setHorarios] = useState([
     { hora: "08:00", disponible: true },
     { hora: "09:00", disponible: true },
@@ -79,6 +78,16 @@ function FormularioConCalendario({
 
     const horariosBase = isAfterDecember12
       ? [
+          { hora: "10:00", disponible: true },
+          { hora: "10:30", disponible: true },
+          { hora: "11:00", disponible: true },
+          { hora: "11:30", disponible: true },
+          { hora: "12:00", disponible: true },
+          { hora: "12:30", disponible: true },
+          { hora: "13:00", disponible: true },
+          { hora: "13:30", disponible: true },
+          { hora: "14:00", disponible: true },
+          { hora: "14:30", disponible: true },
           { hora: "15:00", disponible: true },
           { hora: "15:30", disponible: true },
           { hora: "16:00", disponible: true },
@@ -92,34 +101,31 @@ function FormularioConCalendario({
           { hora: "20:00", disponible: true },
           { hora: "20:30", disponible: true },
           { hora: "21:00", disponible: true },
-          { hora: "21:30", disponible: true },
-          { hora: "22:00", disponible: true },
-          { hora: "22:30", disponible: true },
-          { hora: "23:00", disponible: true },
-          { hora: "23:30", disponible: true },
-          { hora: "00:00", disponible: true },
         ]
       : [
-
-        { hora: "15:00", disponible: true },
-        { hora: "15:30", disponible: true },
-        { hora: "16:00", disponible: true },
-        { hora: "16:30", disponible: true },
-        { hora: "17:00", disponible: true },
-        { hora: "17:30", disponible: true },
-        { hora: "18:00", disponible: true },
-        { hora: "18:30", disponible: true },
-        { hora: "19:00", disponible: true },
-        { hora: "19:30", disponible: true },
-        { hora: "20:00", disponible: true },
-        { hora: "20:30", disponible: true },
-        { hora: "21:00", disponible: true },
-        { hora: "21:30", disponible: true },
-        { hora: "22:00", disponible: true },
-        { hora: "22:30", disponible: true },
-        { hora: "23:00", disponible: true },
-        { hora: "23:30", disponible: true },
-        { hora: "00:00", disponible: true },
+          { hora: "10:00", disponible: true },
+          { hora: "10:30", disponible: true },
+          { hora: "11:00", disponible: true },
+          { hora: "11:30", disponible: true },
+          { hora: "12:00", disponible: true },
+          { hora: "12:30", disponible: true },
+          { hora: "13:00", disponible: true },
+          { hora: "13:30", disponible: true },
+          { hora: "14:00", disponible: true },
+          { hora: "14:30", disponible: true },
+          { hora: "15:00", disponible: true },
+          { hora: "15:30", disponible: true },
+          { hora: "16:00", disponible: true },
+          { hora: "16:30", disponible: true },
+          { hora: "17:00", disponible: true },
+          { hora: "17:30", disponible: true },
+          { hora: "18:00", disponible: true },
+          { hora: "18:30", disponible: true },
+          { hora: "19:00", disponible: true },
+          { hora: "19:30", disponible: true },
+          { hora: "20:00", disponible: true },
+          { hora: "20:30", disponible: true },
+          { hora: "21:00", disponible: true },
         ];
 
     const horariosDisponibles = horariosBase.map((horario) => ({
