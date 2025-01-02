@@ -74,7 +74,7 @@ export function Footer() {
       </div>
       <div className="h-0.5 w-full bg-gradient-to-r from-transparent via-black to-transparent"></div>
       <p className="text-center md:text-lg">
-        © 2024 GF Barber Studio | Todos los derechos reservados.
+        © {new Date().getFullYear()} GF Barber Studio | Todos los derechos reservados.
       </p>
     </footer>
   );
